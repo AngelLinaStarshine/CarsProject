@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Car.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;CarsProjecct&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">car</a> &gt; <span class="el_source">Car.java</span></div><h1>Car.java</h1><pre class="source lang-java linenums">package car;
+
+
+import javafx.scene.paint.Color;
+
+import java.time.LocalDate;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author BesoAngel
+ */
+
+public class Car {
+
+    private Color color;
+
+    private String model;
+
+    private int yearOfManufacture;
+
+    private int horsePower;
+
+    public Color getColor() {
+<span class="fc" id="L30">        return color;</span>
+    }
+
+    public void setColor(Color color) {
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        if (color == null)</span>
+<span class="fc" id="L35">            throw new IllegalArgumentException(&quot;Color can't be null&quot;);</span>
+<span class="fc" id="L36">        this.color = color;</span>
+<span class="fc" id="L37">    }</span>
+
+    public String getModel() {
+<span class="fc" id="L40">        return model;</span>
+    }
+
+    public void setModel(String model) {
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (model == null)</span>
+<span class="fc" id="L45">            throw new IllegalArgumentException(&quot;Model can't be null&quot;);</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        if (model.trim().length() == 0)</span>
+<span class="fc" id="L47">            throw new IllegalArgumentException(&quot;Model can't be empty&quot;);</span>
+<span class="fc" id="L48">        this.model = model.trim();</span>
+<span class="fc" id="L49">    }</span>
+
+    public int getYearOfManufacture() {
+<span class="fc" id="L52">        return yearOfManufacture;</span>
+    }
+
+    public void setYearOfManufacture(int yearOfManufacture) {
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        if (yearOfManufacture &lt;= 1930)</span>
+<span class="fc" id="L57">            throw new IllegalArgumentException(&quot;The car is too old&quot;);</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        else if (yearOfManufacture &gt; LocalDate.now().getYear())</span>
+<span class="fc" id="L59">            throw new IllegalArgumentException(&quot;The year of manufacture can't be in a future&quot;);</span>
+
+<span class="fc" id="L61">        this.yearOfManufacture = yearOfManufacture;</span>
+<span class="fc" id="L62">    }</span>
+
+    public int getHorsePower() {
+<span class="fc" id="L65">        return horsePower;</span>
+    }
+
+    public void setHorsePower(int horsePower) {
+
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        if (horsePower &lt;= 0)</span>
+<span class="fc" id="L71">            throw new IllegalArgumentException(&quot;the horse power value is too low&quot;);</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        else if (horsePower &gt;= 1000)</span>
+<span class="fc" id="L73">            throw new IllegalArgumentException(&quot;the horse power value is too high&quot;);</span>
+
+<span class="fc" id="L75">        this.horsePower = horsePower;</span>
+<span class="fc" id="L76">    }</span>
+
+<span class="fc" id="L78">    public Car(Color color, String model, int yearOfManufacture, int horsePower) {</span>
+<span class="fc" id="L79">        setColor(color);</span>
+<span class="fc" id="L80">        setModel(model);</span>
+<span class="fc" id="L81">        setYearOfManufacture(yearOfManufacture);</span>
+<span class="fc" id="L82">        setHorsePower(horsePower);</span>
+<span class="fc" id="L83">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L87">        return getModel() + &quot;, manufactured in &quot; + getYearOfManufacture() + &quot;, &quot; + getHorsePower() + &quot; hp&quot;;</span>
+    }
+}
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
