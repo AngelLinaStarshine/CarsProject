@@ -17,6 +17,11 @@ import java.time.LocalDate;
  */
 
 public class Car {
+    
+    
+
+ //call variables 
+
 
     private Color color;
 
@@ -29,17 +34,19 @@ public class Car {
     public Color getColor() {
         return color;
     }
-
+//catch errors, wrong input
+    //set method
     public void setColor(Color color) {
         if (color == null)
             throw new IllegalArgumentException("Color can't be null");
         this.color = color;
     }
-
+//get method
     public String getModel() {
         return model;
     }
-
+//catch errors, wrong input
+    //set method
     public void setModel(String model) {
         if (model == null)
             throw new IllegalArgumentException("Model can't be null");
@@ -47,12 +54,14 @@ public class Car {
             throw new IllegalArgumentException("Model can't be empty");
         this.model = model.trim();
     }
-
+//get method
     public int getYearOfManufacture() {
         return yearOfManufacture;
     }
-
+//catch wrong input,
+    //set method
     public void setYearOfManufacture(int yearOfManufacture) {
+        //set up specific range to controll correct 
         if (yearOfManufacture <= 1930)
             throw new IllegalArgumentException("The car is too old");
         else if (yearOfManufacture > LocalDate.now().getYear())
